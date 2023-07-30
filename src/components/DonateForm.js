@@ -12,11 +12,12 @@ const DEFAULT_FIELDS = {
 };
 
 export default function DonateForm() {
+    const [creating, setCreating] = useState(false)
     const [isLoading, setIsLoading] = useState(false);
     const [formData, setFormData] = useState(DEFAULT_FIELDS)
     const [errorData, setErrorData] = useState(DEFAULT_FIELDS)
 
-    const openDonationForm = () => { }
+    const toggleDonationForm = () => setCreating(!creating)
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -48,7 +49,7 @@ export default function DonateForm() {
 
         if (code !== 200) return setErrorData('something went wrong');
 
-        alert('FORM SUBMITTED')
+        setCreating(false)
     }
 
     return (
@@ -56,50 +57,62 @@ export default function DonateForm() {
             <button
                 className={styles.openForm}
                 type='button'
-                onClick={() => null}
+                onClick={toggleDonationForm}
             >
                 Start Donation
             </button>
 
-            <form className={styles.DonateForm} noValidate autoComplete='on' onSubmit={handleSubmit}>
-                <fieldset>
-                    <input
-                        type='text'
-                        placeholder='name'
-                        value={formData.name}
-                        onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                    />
-                    <p>{errorData.name}</p>
+            <div className={`${creating ? '' : 'hidden'} ${styles.donateWrapper}`}>
+                <form className={styles.donateForm} noValidate autoComplete='on' onSubmit={handleSubmit}>
+                    <button
+                        className={styles.close}
+                        type='button'
+                        onClick={toggleDonationForm}
+                    >
+                        &#x2715;
+                    </button>
 
-                    <input
-                        type='email'
-                        placeholder='email'
-                        value={formData.email}
-                        onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                    />
-                    <p>{errorData.email}</p>
+                    <h1>Donation Form</h1>
 
-                    <input
-                        type='text'
-                        placeholder='type'
-                        value={formData.type}
-                        onChange={(e) => setFormData({ ...formData, type: e.target.value })}
-                    />
-                    <p>{errorData.type}</p>
+                    <fieldset>
+                        <input
+                            type='text'
+                            placeholder='name'
+                            value={formData.name}
+                            onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                        />
+                        <p>{errorData.name}</p>
 
-                    <input
-                        type='text'
-                        placeholder='value'
-                        value={formData.value}
-                        onChange={(e) => setFormData({ ...formData, value: e.target.value })}
-                    />
-                    <p>{errorData.type}</p>
-                </fieldset>
+                        <input
+                            type='email'
+                            placeholder='email'
+                            value={formData.email}
+                            onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                        />
+                        <p>{errorData.email}</p>
 
-                <input tyupe='submit' className='hidden' />
+                        <input
+                            type='text'
+                            placeholder='type'
+                            value={formData.type}
+                            onChange={(e) => setFormData({ ...formData, type: e.target.value })}
+                        />
+                        <p>{errorData.type}</p>
 
-                <button onClick={handleSubmit} type='submit'>Submit</button>
-            </form>
+                        <input
+                            type='text'
+                            placeholder='value'
+                            value={formData.value}
+                            onChange={(e) => setFormData({ ...formData, value: e.target.value })}
+                        />
+                        <p>{errorData.type}</p>
+                    </fieldset>
+
+                    <input type='submit' className='hidden' />
+
+                    <button onClick={handleSubmit} type='submit'>Submit</button>
+                </form>
+            </div>
         </>
     )
 }
