@@ -1,6 +1,7 @@
 import Image from 'next/image';
-import DonateForm from '@/components/DonateForm';
 import styles from './LandingPage.module.scss';
+import LoginForm from '@/components/LoginForm';
+import PasswordToClipboard from '@/components/PasswordToClipboard';
 
 export default function LandingPage() {
   return (
@@ -16,8 +17,8 @@ export default function LandingPage() {
       </div>
 
       <div className={styles.formWrapper}>
-        <h1>Donation Form</h1>
-        <DonateForm />
+        <h1>Greetings!</h1>
+        <p>Welcome to my mini app for tracking donations.</p>
       </div>
     </main>
   )

@@ -1,22 +1,33 @@
 'use client'
 import { useState, useEffect } from 'react'
-import { useRouter } from 'next/navigation'
-import Link from 'next/link'
-import styles from './AppLinks.module.scss'
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
+import styles from './AppLinks.module.scss';
 
 export default function AppLinks() {
-    const router = useRouter()
-    const [isAuthed, setIsAuthed] = useState(false);
+    const pathname = usePathname()
+    const [isAuthed, setIsAuthed] = useState(document.cookie.split(';').includes('openSeattleAuth=supersecrettoken'))
 
     useEffect(() => {
-        setIsAuthed(document.cookie.split(';').includes('openSeattleAuth=supersecrettoken'))
-    }, [router, setIsAuthed])
+        const stillAuthed = document.cookie.split(';').includes('openSeattleAuth=supersecrettoken')
+        setIsAuthed(stillAuthed)
+    }, [pathname])
+
+    const openDonationForm = () => {
+        
+    }
 
     return (
-        <span className={styles.AppLinks}>
+        <span className={styles.appLinks}>
             {
                 isAuthed
-                    ? <h1>hello</h1>
+                    ? <button
+                        className={styles.openForm}
+                        type='button'
+                        onClick={openDonationForm}
+                    >
+                        Start Donation
+                    </button>
                     : <Link href='/login'>login</Link>
             }
         </span>
