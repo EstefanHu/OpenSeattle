@@ -1,0 +1,27 @@
+.pageWrapper {
+    display: flex;
+    height: 100%;
+
+    .imageWrapper {
+        position: relative;
+        flex-grow: 1;
+        overflow: hidden;
+
+        img {
+            object-fit: cover;
+        }
+    }
+
+    .formWrapper {
+        width: 600px;
+        padding: 30px 40px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    @media only screen and (max-width: 900px) {
+        .imageWrapper {
+            display: none;
+        }
+    }
+}
