@@ -13,15 +13,25 @@
     }
 
     .formWrapper {
+        margin: 0 auto;
         width: 600px;
         padding: 30px 40px;
         display: flex;
         flex-direction: column;
+
+        h1 {
+            margin-bottom: 20px;
+            
+        }
     }
 
     @media only screen and (max-width: 900px) {
         .imageWrapper {
             display: none;
+        }
+
+        .formWrapper {
+            padding: 30px 15px;
         }
     }
 }

@@ -16,7 +16,7 @@ export default function Home() {
       </div>
 
       <div className={styles.formWrapper}>
-        <h1>Donate</h1>
+        <h1>Donation Form</h1>
         <DonateForm />
       </div>
     </main>
