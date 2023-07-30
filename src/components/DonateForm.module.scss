@@ -1,5 +1,22 @@
+.openForm {
+    background-color: var(--accent);
+    border: 2px solid var(--accent);
+    border-radius: 4px;
+    padding: 5px 12px;
+    color: white;
+    font-weight: bold;
+    font-size: 0.9rem;
+    transition: color 0.2s, background-color 0.2s;
+    cursor: pointer;
+
+    &:hover {
+        background-color: white;
+        color: var(--accent);
+    }
+}
+
 .DonateForm {
-    display: flex;
+    display: none;
     flex-direction: column;
 
     fieldset {
