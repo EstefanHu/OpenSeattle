@@ -1,8 +1,8 @@
 import Image from 'next/image';
 import DonateForm from '@/components/DonateForm';
-import styles from './marketing.module.scss';
+import styles from './LandingPage.module.scss';
 
-export default function Home() {
+export default function LandingPage() {
   return (
     <main className={styles.pageWrapper}>
       <div className={styles.imageWrapper}>
@@ -16,7 +16,7 @@ export default function Home() {
       </div>
 
       <div className={styles.formWrapper}>
-        <h1>Donate</h1>
+        <h1>Donation Form</h1>
         <DonateForm />
       </div>
     </main>
