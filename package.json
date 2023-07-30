@@ -6,11 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "prettier --write . && eslint --fix .",
-    "postinstall": "prisma generate"
+    "lint": "prettier --write . && eslint --fix ."
   },
   "dependencies": {
-    "@prisma/client": "^5.0.0",
     "dayjs": "^1.11.9",
     "eslint": "8.46.0",
     "eslint-config-next": "13.4.12",
@@ -21,7 +19,6 @@
   },
   "devDependencies": {
     "@types/node": "20.4.5",
-    "@types/react": "18.2.17",
-    "prisma": "^5.0.0"
+    "@types/react": "18.2.17"
   }
 }
