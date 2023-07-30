@@ -1,43 +1,38 @@
 'use client';
 import { useState } from 'react';
+import { useRouter } from 'next/navigation';
 import styles from './LoginForm.module.scss'
 
-const DEFAULT_FIELDS = {
-    password: '',
-};
-
 export default function LoginForm() {
+    const router = useRouter()
     const [isLoading, setIsLoading] = useState(false);
-    const [formData, setFormData] = useState(DEFAULT_FIELDS)
-    const [errorData, setErrorData] = useState(DEFAULT_FIELDS)
+    const [password, setPassword] = useState('')
+    const [error, setError] = useState('')
 
     const handleSubmit = async (e) => {
         e.preventDefault();
 
         if (isLoading) return;
-        setErrorData(DEFAULT_FIELDS)
-        const { password } = formData;
-        const errors = { ...DEFAULT_FIELDS }
+        setError('')
 
-        if (!password) errors.password = 'please provide password'
-        if (JSON.stringify(errors) !== JSON.stringify(DEFAULT_FIELDS)) return setErrorData(errors);
+        if (!password) setError('please provide a passcode')
 
         setIsLoading(true)
         const { code } = await (
-            await fetch('/auth', {
+            await fetch('/api/auth', {
                 method: 'POST',
                 headers: {
                     Accept: 'application/json',
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify(formData)
+                body: JSON.stringify(password)
             })
         ).json();
         setIsLoading(false);
 
-        if (code !== 200) return setErrorData('something went wrong');
-
-        alert('FORM SUBMITTED')
+        if (code !== 201) return setError('request failed');
+        
+        router.push('/dashboard')
     }
 
     return (
@@ -46,10 +41,10 @@ export default function LoginForm() {
                 <input
                     type='password'
                     placeholder='password'
-                    value={formData.password}
-                    onChange={(e) => setFormData({ ...formData, password: e.target.value })}
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
                 />
-                <p>{errorData.password}</p>
+                <p>{error}</p>
             </fieldset>
 
             <input tyupe='submit' className='hidden' />

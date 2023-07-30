@@ -1,38 +1,24 @@
 import {
     BAD_REQUEST,
-    CONFLICT,
-    NOT_AUTHENTICATED,
-    INVALID_REQUEST,
     SUCCESS,
     CREATED,
-    UPDATED,
 } from '@/lib/httpResponses';
 
 export async function POST(req) {
-    const { password } = req.json()
-    if (!password || password !== 'openseattle') return new Response(INVALID_REQUEST)
+    const password = await req.json()
+    if (!password || password !== 'openseattle') return new Response(BAD_REQUEST)
 
-    return new Response(CREATED);
-}
-
-export async function GET() {
-    return new Response(SUCCESS);
-}
-
-export async function PATCH(req) {
-    const { id } = req.json()
-    if (!id) return new Response(BAD_REQUEST)
-    return new Response(UPDATED);
-}
-
-export async function PUT() {
-    const { id } = req.json()
-    if (!id) return new Response(BAD_REQUEST)
-    return new Response(UPDATED);
+    return new Response(CREATED, {
+        headers: { 'Set-Cookie': `openSeattleAuth=supersecrettoken; Max-Age=7200; SameSite=Strict; Path=/; HttpOnly ${process.env.NODE_ENV !== 'development' && '; Secure'}` },
+    });
 }
 
 export async function DELETE() {
-    const { id } = req.json()
-    if (!id) return new Response(BAD_REQUEST)
-    return new Response(SUCCESS);
+    const cookieStore = cookies();
+    const value = cookieStore.get('openSeattleAuth')?.value;
+    if (!value) return new Response(BAD_REQUEST)
+
+    return new Response(SUCCESS, {
+        headers: { 'Set-Cookie': 'openSeattleAuth=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; Max-Age=0;' },
+    });
 }
