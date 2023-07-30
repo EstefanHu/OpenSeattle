@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import AppLinks from '@/components/AppLinks'
 import './globals.css'
 import styles from './layout.module.scss'
 import { Inter } from 'next/font/google'
@@ -19,9 +20,7 @@ export default function RootLayout({ children }) {
             <h1>O<span>pen</span>S<span>eattle</span></h1>
           </Link>
 
-          <span>
-            <Link href='/login'>login</Link>
-          </span>
+          <AppLinks />
         </header>
 
         {children}
