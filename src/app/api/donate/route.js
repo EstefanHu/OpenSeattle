@@ -25,6 +25,11 @@ export async function POST(req) {
     return new Response(CREATED);
 }
 
+export async function GET() {
+    const donations = await prisma.donation.findMany()
+    return new Response(JSON.stringify({ data: donations }))
+}
+
 export async function PATCH(req) {
     const { id } = req.json()
     if (!id) return new Response(BAD_REQUEST)
@@ -37,8 +42,9 @@ export async function PUT() {
     return new Response(UPDATED);
 }
 
-export async function DELETE() {
-    const { id } = req.json()
+export async function DELETE(req) {
+    const { id } = await req.json()
     if (!id) return new Response(BAD_REQUEST)
+    await prisma.donation.delete({ where: { id } })
     return new Response(SUCCESS);
 }
