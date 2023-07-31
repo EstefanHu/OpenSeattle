@@ -1,17 +1,29 @@
-.controlCenter {
+.donation {
+    width: 100%;
     display: flex;
     flex-direction: column;
-    width: 100%;
+    margin-bottom: 20px;
 
-    .donation {
-        width: 100%;
+    .date {
+        font-weight: bold;
+        font-size: 0.7rem;
+        color: var(--accent);
+        margin-bottom: -3px;
+    }
+
+    h2 {
+        font-size: 1.3rem;
+        margin-right: 20px;
+        text-transform: capitalize;
+    }
+
+    p {
+        font-size: 0.9rem;
+    }
+
+    span {
         display: flex;
-        flex-direction: column;
-        margin-bottom: 20px;
-
-        p {
-            margin-right: 5px;
-        }
+        margin-top: 10px;
 
         a {
             background-color: var(--accent);
@@ -23,6 +35,7 @@
             font-weight: bold;
             font-size: 0.9rem;
             transition: color 0.2s, background-color 0.2s;
+            margin-right: 10px;
 
             &:hover {
                 background-color: white;

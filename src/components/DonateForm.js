@@ -30,7 +30,7 @@ export default function DonateForm() {
         if (!email) errors.email = 'please provide contact email'
         if (!isValidEmail(email)) errors.email = 'invalid email address'
         if (!type) errors.type = 'please select donation type'
-        if (!value) errors.value = 'please provide donation amount'
+        if (value === 0) errors.value = 'please provide donation amount'
         if (JSON.stringify(errors) !== JSON.stringify(DEFAULT_FIELDS)) return setErrorData(errors);
 
         setIsLoading(true)
@@ -46,7 +46,7 @@ export default function DonateForm() {
         ).json();
         setIsLoading(false);
 
-        if (code !== 200) return setErrorData('something went wrong');
+        if (code !== 201) return setErrorData('something went wrong');
 
         setCreating(false)
     }
@@ -104,7 +104,7 @@ export default function DonateForm() {
                             value={formData.value}
                             onChange={(e) => setFormData({ ...formData, value: e.target.value })}
                         />
-                        <p>{errorData.type}</p>
+                        <p>{errorData.value}</p>
                     </fieldset>
 
                     <input type='submit' className='hidden' />
