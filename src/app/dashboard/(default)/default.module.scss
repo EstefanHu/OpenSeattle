@@ -6,9 +6,27 @@
     .donation {
         width: 100%;
         display: flex;
+        flex-direction: column;
 
-        P {
+        p {
             margin-right: 5px;
+        }
+
+        a {
+            background-color: var(--accent);
+            border: 2px solid var(--accent);
+            width: fit-content;
+            padding: 4px 12px;
+            border-radius: 4px;
+            color: white;
+            font-weight: bold;
+            font-size: 0.9rem;
+            transition: color 0.2s, background-color 0.2s;
+
+            &:hover {
+                background-color: white;
+                color: var(--accent);
+            }
         }
     }
 }
