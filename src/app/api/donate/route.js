@@ -9,8 +9,8 @@ import {
 } from '@/lib/httpResponses';
 
 export async function POST(req) {
-    const { name, email, type, amount } = req.json()
-    if (!name || !email || !type || !amount) return new Response(BAD_REQUEST);
+    const { name, email, type, value } = await req.json()
+    if (!name || !email || !type || !value) return new Response(BAD_REQUEST);
 
     return new Response(CREATED);
 }

@@ -1,57 +1,113 @@
-.DonateForm {
-    display: flex;
-    flex-direction: column;
+.openForm {
+    background-color: var(--accent);
+    border: 2px solid var(--accent);
+    border-radius: 4px;
+    padding: 5px 12px;
+    color: white;
+    font-weight: bold;
+    font-size: 0.9rem;
+    transition: color 0.2s, background-color 0.2s;
+    cursor: pointer;
 
-    fieldset {
-        outline: none;
-        border: none;
+    &:hover {
+        background-color: white;
+        color: var(--accent);
+    }
+}
+
+.donateWrapper {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 9;
+    background-color: rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+
+    .donateForm {
         display: flex;
         flex-direction: column;
+        background-color: white;
+        width: 100%;
+        max-width: 500px;
+        margin: 10vh auto 0;
+        padding: 20px 20px 35px;
+        border-radius: 5px;
+        cursor: default;
 
-        input {
-            width: 100%;
-            height: 40px;
-            border: 1px solid rgb(200, 200, 200);
-            outline: none;
-            padding: 8.5px 14px;
-            border-radius: 5px;
-            transition: 0.1s;
-            margin-bottom: 4px;
-            font-size: 1rem;
+        .close {
+            background-color: transparent;
+            border: none;
+            width: 15px;
+            height: 15px;
+            align-self: flex-end;
+            color: black;
+            transition: color 0.2s;
+            font-size: 1.1rem;
+            cursor: pointer;
 
             &:hover {
-                border-color: grey;
-            }
-
-            &:focus {
-                border: 2px solid var(--accent);
-                padding: 8.5px 13px;
+                color: var(--accent);
             }
         }
 
-        p {
-            color: var(--accent);
-            margin-bottom: 10px;
-            font-size: 0.8rem;
-            margin-left: 10px;
+        h1 {
+            margin-bottom: 20px;
         }
-    }
 
-    button[type='submit'] {
-        background-color: var(--accent);
-        border: 2px solid var(--accent);
-        color: white;
-        width: 100%;
-        border-radius: 5px;
-        height: 35px;
-        transition: 0.2s;
-        font-size: 1rem;
-        font-weight: bold;
-        cursor: pointer;
+        fieldset {
+            outline: none;
+            border: none;
+            display: flex;
+            flex-direction: column;
 
-        &:hover {
-            background-color: white;
-            color: var(--accent);
+            input {
+                width: 100%;
+                height: 40px;
+                border: 1px solid rgb(200, 200, 200);
+                outline: none;
+                padding: 8.5px 14px;
+                border-radius: 5px;
+                transition: 0.1s;
+                margin-bottom: 4px;
+                font-size: 1rem;
+
+                &:hover {
+                    border-color: grey;
+                }
+
+                &:focus {
+                    border: 2px solid var(--accent);
+                    padding: 8.5px 13px;
+                }
+            }
+
+            p {
+                color: var(--accent);
+                margin-bottom: 10px;
+                font-size: 0.8rem;
+                margin-left: 10px;
+            }
+        }
+
+        button[type='submit'] {
+            background-color: var(--accent);
+            border: 2px solid var(--accent);
+            color: white;
+            width: 100%;
+            border-radius: 5px;
+            height: 35px;
+            transition: color 0.2s, background-color 0.2s;
+            font-size: 1rem;
+            font-weight: bold;
+            margin-top: 15px;
+            cursor: pointer;
+
+            &:hover {
+                background-color: white;
+                color: var(--accent);
+            }
         }
     }
 }

@@ -1,0 +1,26 @@
+.landingLayout {
+    padding-top: 60px;
+    height: 100vh;
+
+    .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 60px;
+        padding: 0 20px;
+
+        h1 {
+            font-size: 1.5rem;
+
+            @media only screen and (max-width: 800px) {
+                span {
+                    display: none;
+                }
+            }
+        }
+    }
+}

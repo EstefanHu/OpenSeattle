@@ -32,7 +32,7 @@ export default function LoginForm() {
 
         if (code !== 201) return setError('request failed');
         
-        router.push('/dashboard')
+        return router.push('/dashboard')
     }
 
     return (
