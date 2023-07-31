@@ -1,3 +1,4 @@
+import prisma from '@/lib/prisma';
 import styles from './default.module.scss'
 
 const DUMMY = [
@@ -10,11 +11,21 @@ const DUMMY = [
     }
 ]
 
-export default function controlCenter() {
+export default async function controlCenter() {
+    const donations = await prisma.donation.findMany()
 
     return (
         <div className={styles.controlCenter}>
             <h1>All Donations</h1>
+
+            {donations.map(({ id, name, email, type, value }) => (
+                <div key={id} className={styles.donation}>
+                    <p><b>{name}</b></p>
+                    <p>{email}</p>
+                    <p>{type}</p>
+                    <p>{value}</p>
+                </div>
+            ))}
         </div>
     )
 }

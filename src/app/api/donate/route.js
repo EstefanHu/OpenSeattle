@@ -7,23 +7,16 @@ import {
     CREATED,
     UPDATED,
 } from '@/lib/httpResponses';
+import prisma from '@/lib/prisma';
+// import conn from '@/lib/postgres';
 
 export async function POST(req) {
     const { name, email, type, value } = await req.json()
     if (!name || !email || !type || !value) return new Response(BAD_REQUEST);
 
-    return new Response(CREATED);
-}
+    await prisma.donation.create({ data: { name, email, type, value } })
 
-export async function GET(req) {
-    const { id } = req.json()
-    if (id) {
-        // Fetch single donation
-        return new Response(SUCCESS);
-    } else {
-        // Fetch all Donations
-        return new Response(SUCCESS);
-    }
+    return new Response(CREATED);
 }
 
 export async function PATCH(req) {
