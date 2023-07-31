@@ -1,6 +1,6 @@
 # Howdy OpenSeattle
 Im out on holiday right now Im going to build out the solution to the requested challenge on Sunday the 30th so check back in then!
-**Update** Looks like I didnt get back from holiday as early as I thought. I have blocked out the later half of today (the 1st) to complete this challenge including a robust implemenation of all requested features.
+**Update** Looks like my holiday got extended! Im getting back into town on the evening of the 1st and will deticate the full evening to implemening a robust solution to the requested feature set. 
 
 ## Requirements:
 1. Donation Registration: A feature that allows the shelter staff to record details of the donations, such as the donor's name, type of donation (money, food, clothing, etc.), quantity or amount donated, and the date of the donation.
