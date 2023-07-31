@@ -9,24 +9,43 @@
         flex-direction: column;
         margin-bottom: 20px;
 
-        p {
-            margin-right: 5px;
+        .date {
+            font-weight: bold;
+            font-size: 0.7rem;
+            color: var(--accent);
+            margin-bottom: -3px;
         }
 
-        a {
-            background-color: var(--accent);
-            border: 2px solid var(--accent);
-            width: fit-content;
-            padding: 4px 10px;
-            border-radius: 4px;
-            color: white;
-            font-weight: bold;
-            font-size: 0.9rem;
-            transition: color 0.2s, background-color 0.2s;
+        h2 {
+            font-size: 1.3rem;
+            margin-right: 20px;
+            text-transform: capitalize;
+        }
 
-            &:hover {
-                background-color: white;
-                color: var(--accent);
+        p {
+            font-size: 0.9rem;
+        }
+
+        span {
+            display: flex;
+            margin-top: 10px;
+
+            a {
+                background-color: var(--accent);
+                border: 2px solid var(--accent);
+                width: fit-content;
+                padding: 4px 10px;
+                border-radius: 4px;
+                color: white;
+                font-weight: bold;
+                font-size: 0.9rem;
+                transition: color 0.2s, background-color 0.2s;
+                margin-right: 10px;
+
+                &:hover {
+                    background-color: white;
+                    color: var(--accent);
+                }
             }
         }
     }

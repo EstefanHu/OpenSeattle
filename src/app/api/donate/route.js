@@ -13,7 +13,14 @@ export async function POST(req) {
     const { name, email, type, value } = await req.json()
     if (!name || !email || !type || !value) return new Response(BAD_REQUEST);
 
-    await prisma.donation.create({ data: { name, email, type, value:  parseInt(value)} })
+    await prisma.donation.create({
+        data: {
+            name,
+            email: email.toLowerCase(),
+            type: type.toLowerCase(),
+            value: parseInt(value)
+        }
+    })
 
     return new Response(CREATED);
 }

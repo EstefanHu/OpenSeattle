@@ -12,13 +12,22 @@ export default async function controlCenter() {
 
             {donations.map(({ id, name, email, type, value, createdAt }) => (
                 <div key={id} className={styles.donation}>
+                    <p className={styles.date}>{dayjs(createdAt).format('MMM DD, YYYY')}</p>
                     <h2>{name}</h2>
 
-                    <p>{dayjs(createdAt).format('MM-DD-YY')}</p>
-                    <p>{email}</p>
-                    <p>{type}</p>
-                    <p>{value}</p>
-                    <Link href={`/dashboard/${id}`}>View Allocations</Link>
+                    <p><b>contact:</b> {email}</p>
+                    <p><b>type:</b> {type}</p>
+                    <p><b>amount:</b> {value}</p>
+
+                    <span>
+                        <Link href={`/dashboard/${id}`}>View Allocations</Link>
+                        <button
+                            type='button'
+                            onClick={null}
+                        >
+                            Delete
+                        </button>
+                    </span>
                 </div>
             ))}
         </div>
