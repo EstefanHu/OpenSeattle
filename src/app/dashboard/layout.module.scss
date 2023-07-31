@@ -14,5 +14,24 @@
         padding: 0 20px;
         z-index: 10;
         background-color: white;
+
+        h1 {
+            font-size: 1.5rem;
+
+            @media only screen and (max-width: 800px) {
+                span {
+                    display: none;
+                }
+            }
+        }
+    }
+
+    .pageWrapper {
+        display: flex;
+        flex-direction: column;
+        padding: 0 15px;
+        width: 100vw;
+        max-width: 800px;
+        margin: 0 auto;
     }
 }

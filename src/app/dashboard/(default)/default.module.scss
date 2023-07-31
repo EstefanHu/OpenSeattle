@@ -1,0 +1,14 @@
+.controlCenter {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+
+    .donation {
+        width: 100%;
+        display: flex;
+
+        P {
+            margin-right: 5px;
+        }
+    }
+}

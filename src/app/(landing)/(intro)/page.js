@@ -19,6 +19,7 @@ export default function LandingPage() {
       <div className={styles.formWrapper}>
         <h1>Greetings!</h1>
         <p>Welcome to my mini app for tracking donations.</p>
+        <p>I&apos;ve made this as a quick and dirty UI for a super simple set of lambdas to handle donations CRUD.</p>
       </div>
     </main>
   )

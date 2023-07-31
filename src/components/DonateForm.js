@@ -6,7 +6,6 @@ import styles from './DonateForm.module.scss'
 const DEFAULT_FIELDS = {
     name: '',
     email: '',
-    phone: '',
     type: '',
     value: 0,
 };
