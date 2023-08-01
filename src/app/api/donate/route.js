@@ -39,6 +39,7 @@ export async function PATCH(req) {
 export async function DELETE(req) {
     const { id } = await req.json()
     if (!id) return new Response(BAD_REQUEST)
+    await prisma.allocation.deleteMany({ where: { donationId: parseInt(id) } })
     await prisma.donation.delete({ where: { id } })
     return new Response(SUCCESS);
 }

@@ -6,11 +6,16 @@ export default function DashboardLayout({ children }) {
     return (
         <main className={styles.dashboardLayout}>
             <header>
-                <Link href='/dashboard'>
+                <Link href='/app'>
                     <h1>O<span>pen</span>S<span>eattle</span></h1>
                 </Link>
 
-                <DonateForm />
+
+                <span>
+                    <Link href='/app/reports'>reports</Link>
+
+                    <DonateForm />
+                </span>
             </header>
 
             <div className={styles.pageWrapper}>

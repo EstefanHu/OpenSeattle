@@ -12,7 +12,7 @@ export default function AllocationFeed({ donationId, initAmount }) {
     const [error, setError] = useState('')
 
     useEffect(() => {
-        fetch('/api/allocation', {
+        fetch(`/api/allocation?id=${donationId}`, {
             method: 'GET',
         }).then((res) => res.json())
             .then(({ data }) => {
