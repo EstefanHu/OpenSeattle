@@ -10,11 +10,18 @@ const DEFAULT_FIELDS = {
     value: 0,
 };
 
+const ERROR_DEFAULTS = {
+    name: '',
+    email: '',
+    type: '',
+    value: '',
+}
+
 export default function DonateForm() {
     const [creating, setCreating] = useState(false)
     const [isLoading, setIsLoading] = useState(false);
     const [formData, setFormData] = useState(DEFAULT_FIELDS)
-    const [errorData, setErrorData] = useState(DEFAULT_FIELDS)
+    const [errorData, setErrorData] = useState(ERROR_DEFAULTS)
 
     const toggleDonationForm = () => setCreating(!creating)
 
@@ -22,9 +29,9 @@ export default function DonateForm() {
         e.preventDefault();
 
         if (isLoading) return;
-        setErrorData(DEFAULT_FIELDS)
+        setErrorData(ERROR_DEFAULTS)
         const { name, email, type, value } = formData;
-        const errors = { ...DEFAULT_FIELDS }
+        const errors = { ...ERROR_DEFAULTS }
 
         if (!name) errors.name = 'please provide contact name'
         if (!email) errors.email = 'please provide contact email'
@@ -90,15 +97,20 @@ export default function DonateForm() {
                         />
                         <p>{errorData.email}</p>
 
-                        <input
-                            type='text'
-                            placeholder='type'
+                        <select
                             value={formData.type}
                             onChange={(e) => setFormData({ ...formData, type: e.target.value })}
-                        />
+                        >
+                            <option defaultValue=''>type</option>
+                            <option value='food'>food</option>
+                            <option value='money'>money</option>
+                            <option value='clothes'>clothes</option>
+                            <option value='other'>other</option>
+                        </select>
                         <p>{errorData.type}</p>
 
                         <input
+                            disabled={formData.type === ''}
                             type='text'
                             placeholder='value'
                             value={formData.value}
@@ -111,7 +123,7 @@ export default function DonateForm() {
 
                     <button onClick={handleSubmit} type='submit'>Submit</button>
                 </form>
-            </div>
+            </div >
         </>
     )
 }

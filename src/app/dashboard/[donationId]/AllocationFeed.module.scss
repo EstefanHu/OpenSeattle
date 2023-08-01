@@ -1,21 +1,22 @@
-.openForm {
-    background-color: var(--accent);
-    border: 2px solid var(--accent);
-    border-radius: 4px;
-    padding: 5px 12px;
-    color: white;
-    font-weight: bold;
-    font-size: 0.9rem;
-    transition: color 0.2s, background-color 0.2s;
-    cursor: pointer;
+.header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 50px;
+}
 
-    &:hover {
-        background-color: white;
-        color: var(--accent);
+.allocationFeed {
+    display: flex;
+    flex-direction: column;
+    
+    .allocation {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 10px;
     }
 }
 
-.donateWrapper {
+.allocationWrapper {
     position: fixed;
     top: 0;
     bottom: 0;
@@ -25,7 +26,7 @@
     background-color: rgba(0, 0, 0, 0.2);
     cursor: pointer;
 
-    .donateForm {
+    .allocationForm {
         display: flex;
         flex-direction: column;
         background-color: white;
