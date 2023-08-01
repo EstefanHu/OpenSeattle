@@ -11,11 +11,7 @@ export default function DashboardLayout({ children }) {
                 </Link>
 
 
-                <span>
-                    <Link href='/app/reports'>reports</Link>
-
-                    <DonateForm />
-                </span>
+                <Link href='/app/reports'>reports</Link>
             </header>
 
             <div className={styles.pageWrapper}>
