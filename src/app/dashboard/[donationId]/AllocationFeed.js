@@ -43,6 +43,8 @@ export default function AllocationFeed({ donationId, initAmount }) {
         let currError = ''
 
         if (amount === 0) currError = 'please enter an allocation amount';
+        const newTotal = totalSpend + parseInt(amount)
+        if (initAmount < newTotal) currError = 'Allocation amount is too great'
         if (currError !== '') return setError(currError)
 
         setIsLoading(true)
@@ -61,7 +63,8 @@ export default function AllocationFeed({ donationId, initAmount }) {
         if (code !== 201) return setError('something went wrong');
 
         setAllocations([...allocations, newAllocation])
-        setTotalSpend(totalSpend + parseInt(amount))
+        setTotalSpend(newTotal)
+        setAmount(0)
         setCreating(false)
     }
 
@@ -104,6 +107,8 @@ export default function AllocationFeed({ donationId, initAmount }) {
                     </button>
 
                     <h1>Allocation Form</h1>
+
+                    <p><b>Allocation left:</b> {parseInt(initAmount) - totalSpend}</p>
 
                     <fieldset>
                         <input
