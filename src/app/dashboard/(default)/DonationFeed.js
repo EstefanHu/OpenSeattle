@@ -24,7 +24,7 @@ export default function DonationFeed() {
     }, [])
 
     const doDeletion = async (id) => {
-        setIsLoading(true)
+        setIsDeleting(true)
         await fetch('/api/donate', {
             method: 'DELETE',
             headers: {
@@ -34,7 +34,7 @@ export default function DonationFeed() {
             body: JSON.stringify({ id })
         })
         setDonations(donations.filter((d) => d.id !== id))
-        setIsLoading(false)
+        setIsDeleting(false)
     }
 
     return (
@@ -54,7 +54,7 @@ export default function DonationFeed() {
                         <button
                             type='button'
                             onClick={() => doDeletion(id)}
-                            disabled={isLoading}
+                            disabled={isDeleting}
                         >
                             Delete
                         </button>

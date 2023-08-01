@@ -1,4 +1,26 @@
 .pageWrapper {
     display: flex;
     flex-direction: column;
+
+    .back {
+        font-size: 0.6rem;
+        font-weight: bold;
+        text-transform: uppercase;
+        margin-bottom: 15px;
+    }
+
+    label {
+        color: var(--accent);
+        font-weight: bold;
+        font-size: 0.7rem;
+        text-transform: capitalize;
+    }
+
+    h1 {
+        font-size: 1.5rem;
+
+        span {
+            text-transform: capitalize;
+        }
+    }
 }

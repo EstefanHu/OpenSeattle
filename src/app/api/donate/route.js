@@ -36,12 +36,6 @@ export async function PATCH(req) {
     return new Response(UPDATED);
 }
 
-export async function PUT() {
-    const { id } = req.json()
-    if (!id) return new Response(BAD_REQUEST)
-    return new Response(UPDATED);
-}
-
 export async function DELETE(req) {
     const { id } = await req.json()
     if (!id) return new Response(BAD_REQUEST)
