@@ -26,9 +26,8 @@ export async function POST(req) {
 }
 
 export async function GET(req) {
-    // const { id } = req.query
-    // console.log(id)
-    const allocations = await prisma.allocation.findMany()
+    const id = req.url.split('=')[1]
+    const allocations = await prisma.allocation.findMany({ where: { donationId: parseInt(id) } })
     return new Response(JSON.stringify({ data: allocations }))
 }
 

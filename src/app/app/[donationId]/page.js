@@ -9,7 +9,7 @@ export default async function DonationPage({ params: { donationId } }) {
     return (
         <div className={styles.pageWrapper}>
             <div className={styles.header}>
-                <Link href='/dashboard' className={styles.back}>&lt;- back</Link>
+                <Link href='/app' className={styles.back}>&lt;- back</Link>
 
             </div>
 

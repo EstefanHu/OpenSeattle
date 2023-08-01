@@ -49,7 +49,7 @@ export default function DonationFeed() {
                     <p><b>amount:</b> {value}</p>
 
                     <span>
-                        <Link href={`/dashboard/${id}`}>View Allocations</Link>
+                        <Link href={`/app/${id}`}>View Allocations</Link>
 
                         <button
                             type='button'
