@@ -101,7 +101,7 @@ export default function DonateForm() {
                             value={formData.type}
                             onChange={(e) => setFormData({ ...formData, type: e.target.value })}
                         >
-                            <option selected value=''>type</option>
+                            <option defaultValue=''>type</option>
                             <option value='food'>food</option>
                             <option value='money'>money</option>
                             <option value='clothes'>clothes</option>

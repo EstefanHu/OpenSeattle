@@ -10,11 +10,19 @@ import {
 import prisma from '@/lib/prisma';
 
 export async function POST(req) {
-    const { amount } = await req.json()
+    const { donationId, amount } = await req.json()
+    if (!amount || !donationId) return new Response(BAD_REQUEST)
 
-    await prisma.allocation.create({ data: { amount } })
+    const response = await prisma.allocation.create({
+        data: {
+            amount: parseInt(amount),
+            donation: {
+                connect: { id: parseInt(donationId) }
+            }
+        }
+    })
 
-    return new Response(CREATED)
+    return new Response(JSON.stringify({ code: 201, newAllocation: response }))
 }
 
 export async function GET(req) {
@@ -28,5 +36,5 @@ export async function DELETE(req) {
     const { id } = await req.json()
     if (!id) return new Response(BAD_REQUEST)
     await prisma.allocation.delete({ where: { id } })
-    return new Response(SUCCESS);
+    return new Response(DELETE);
 }

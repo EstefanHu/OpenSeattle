@@ -17,7 +17,7 @@ export default async function DonationPage({ params: { donationId } }) {
             <h1><span>{type}</span> from <span>{name}</span></h1>
             <p><b>Initial amount:</b> {value}</p>
 
-            <AllocationFeed id={id} initAmount={value} />
+            <AllocationFeed donationId={id} initAmount={value} />
         </div>
     )
 }

@@ -9,6 +9,11 @@
     display: flex;
     flex-direction: column;
     
+    .allocation {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 10px;
+    }
 }
 
 .allocationWrapper {
