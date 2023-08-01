@@ -27,19 +27,20 @@ export default function DonateForm() {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-
+        
         if (isLoading) return;
         setErrorData(ERROR_DEFAULTS)
         const { name, email, type, value } = formData;
         const errors = { ...ERROR_DEFAULTS }
-
+        
         if (!name) errors.name = 'please provide contact name'
         if (!email) errors.email = 'please provide contact email'
         if (!isValidEmail(email)) errors.email = 'invalid email address'
         if (!type) errors.type = 'please select donation type'
         if (value === 0) errors.value = 'please provide donation amount'
-        if (JSON.stringify(errors) !== JSON.stringify(DEFAULT_FIELDS)) return setErrorData(errors);
-
+        if (JSON.stringify(errors) !== JSON.stringify(ERROR_DEFAULTS)) return setErrorData(errors);
+        console.log('hello')
+        
         setIsLoading(true)
         const { code } = await (
             await fetch('/api/donate', {
