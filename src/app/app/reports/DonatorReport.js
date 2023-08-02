@@ -1,16 +1,13 @@
-import prisma from '@/lib/prisma';
+'use client'
 import styles from './DonatorReport.module.scss'
 
 const DEFAULT = { total: 0, food: 0, money: 0, clothes: 0, other: 0 }
 
-export default async function DonatorReport() {
-    // Prisma doesnt allow for complex SQL transactions so this is a temporary solution until I remove prisma
-    const donators = await prisma.donation.findMany({ include: { allocations: true } });
-
+export default function DonatorReport({ donations }) {
     const res = {}
 
-    for (let i = 0; i < donators.length; i++) {
-        let d = donators[i]
+    for (let i = 0; i < donations.length; i++) {
+        let d = donations[i]
         const { name, type, value } = d
         if (!res[name]) res[name] = structuredClone(DEFAULT)
         res[name].total = res[name].total + 1

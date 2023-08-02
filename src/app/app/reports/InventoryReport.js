@@ -1,12 +1,7 @@
-import prisma from '@/lib/prisma'
+'use client'
 import styles from './InventoryReport.module.scss'
 
-export default async function InventoryReport() {
-    const donations = await prisma.donation.findMany({
-        orderBy: { name: 'asc' },
-        include: { allocations: true }
-    })
-
+export default function InventoryReport({ donations }) {
     return (
         <div className={styles.inventoryReport}>
             <h2>Inventory Report</h2>
