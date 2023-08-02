@@ -1,4 +1,16 @@
 .reportsWrapper {
     display: flex;
     flex-direction: column;
+
+    & > div {
+        margin-bottom: 30px;
+    }
+
+    h1 {
+        margin-bottom: 20px;
+    }
+
+    h2 {
+        margin-bottom: 15px;
+    }
 }
