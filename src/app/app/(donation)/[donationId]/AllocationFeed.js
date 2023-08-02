@@ -19,7 +19,7 @@ export default function AllocationFeed({ donationId, initAmount }) {
                 setAllocations(data)
                 setTotalSpend(data.reduce((a, b) => a + parseInt(b.amount), 0))
             })
-    }, [])
+    }, [donationId])
 
     const deleteAllocation = async (id, amount) => {
         await fetch('/app/[donationId]/allocation', {
