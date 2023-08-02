@@ -1,4 +1,4 @@
-import DonateForm from '@/components/DonateForm'
+import DonateForm from '@/app/app/(donation)/DonateForm'
 import DonationFeed from './DonationFeed'
 import styles from './page.module.scss'
 

@@ -42,7 +42,7 @@ export default function DonateForm() {
         
         setIsLoading(true)
         const { code } = await (
-            await fetch('/api/donate', {
+            await fetch('/app/api', {
                 method: 'POST',
                 headers: {
                     Accept: 'application/json',

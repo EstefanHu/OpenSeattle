@@ -19,7 +19,7 @@ export default function LoginForm() {
 
         setIsLoading(true)
         const { code } = await (
-            await fetch('/api/auth', {
+            await fetch('/login/api', {
                 method: 'POST',
                 headers: {
                     Accept: 'application/json',

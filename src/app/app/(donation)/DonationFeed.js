@@ -10,7 +10,7 @@ export default function DonationFeed() {
     const [isDeleting, setIsDeleting] = useState(false)
 
     useEffect(() => {
-        fetch('/api/donate', {
+        fetch('/app/api', {
             method: 'GET',
             headers: {
                 Accept: 'application/json',
@@ -25,7 +25,7 @@ export default function DonationFeed() {
 
     const doDeletion = async (id) => {
         setIsDeleting(true)
-        await fetch('/api/donate', {
+        await fetch('/app/api', {
             method: 'DELETE',
             headers: {
                 Accept: 'application/json',

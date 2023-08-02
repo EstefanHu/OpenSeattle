@@ -12,7 +12,7 @@ export default function AllocationFeed({ donationId, initAmount }) {
     const [error, setError] = useState('')
 
     useEffect(() => {
-        fetch(`/api/allocation?id=${donationId}`, {
+        fetch(`/app/[donationId]/allocation?id=${donationId}`, {
             method: 'GET',
         }).then((res) => res.json())
             .then(({ data }) => {
@@ -22,7 +22,7 @@ export default function AllocationFeed({ donationId, initAmount }) {
     }, [])
 
     const deleteAllocation = async (id, amount) => {
-        await fetch('/api/allocation', {
+        await fetch('/app/[donationId]/allocation', {
             method: 'DELETE',
             headers: {
                 Accept: 'application/json',
@@ -49,7 +49,7 @@ export default function AllocationFeed({ donationId, initAmount }) {
 
         setIsLoading(true)
         const { code, newAllocation } = await (
-            await fetch('/api/allocation', {
+            await fetch('/app/[donationId]/allocation', {
                 method: 'POST',
                 headers: {
                     Accept: 'application/json',
