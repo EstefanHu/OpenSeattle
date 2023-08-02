@@ -50,6 +50,7 @@ export default function DonateForm() {
 
         if (code !== 201) return setErrorData('something went wrong');
 
+        setFormData(DEFAULT_FIELDS)
         setCreating(false)
     }
 
