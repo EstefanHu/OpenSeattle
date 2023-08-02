@@ -1,4 +1,5 @@
 # Howdy OpenSeattle
+This is my submission for the OpenSeattle application. Having hacked this together the code is a little scatted, but you can view a full working app at https://open-seattle.vercel.app. The passcode is just `openseattle` for now
 
 ## Requirements:
 1. Donation Registration: A feature that allows the shelter staff to record details of the donations, such as the donor's name, type of donation (money, food, clothing, etc.), quantity or amount donated, and the date of the donation.
