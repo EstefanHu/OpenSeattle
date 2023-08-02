@@ -39,7 +39,6 @@ export default function DonateForm() {
         if (!type) errors.type = 'please select donation type'
         if (value === 0) errors.value = 'please provide donation amount'
         if (JSON.stringify(errors) !== JSON.stringify(ERROR_DEFAULTS)) return setErrorData(errors);
-        console.log('hello')
         
         setIsLoading(true)
         const { code } = await (
