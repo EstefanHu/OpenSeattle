@@ -1,7 +1,5 @@
 import Image from 'next/image';
 import styles from './LandingPage.module.scss';
-import LoginForm from '@/components/LoginForm';
-import PasswordToClipboard from '@/components/PasswordToClipboard';
 
 export default function LandingPage() {
   return (

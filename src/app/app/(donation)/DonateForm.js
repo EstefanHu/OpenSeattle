@@ -1,18 +1,15 @@
 'use client';
 import { useState } from 'react';
-import { isValidEmail } from '@/lib/isValidEmail';
 import styles from './DonateForm.module.scss'
 
 const DEFAULT_FIELDS = {
     name: '',
-    email: '',
     type: '',
     value: 0,
 };
 
 const ERROR_DEFAULTS = {
     name: '',
-    email: '',
     type: '',
     value: '',
 }
@@ -30,19 +27,17 @@ export default function DonateForm() {
 
         if (isLoading) return;
         setErrorData(ERROR_DEFAULTS)
-        const { name, email, type, value } = formData;
+        const { name, type, value } = formData;
         const errors = { ...ERROR_DEFAULTS }
 
         if (!name) errors.name = 'please provide contact name'
-        if (!email) errors.email = 'please provide contact email'
-        if (!isValidEmail(email)) errors.email = 'invalid email address'
         if (!type) errors.type = 'please select donation type'
         if (value === 0) errors.value = 'please provide donation amount'
-        if (JSON.stringify(errors) !== JSON.stringify(DEFAULT_FIELDS)) return setErrorData(errors);
+        if (JSON.stringify(errors) !== JSON.stringify(ERROR_DEFAULTS)) return setErrorData(errors);
 
         setIsLoading(true)
         const { code } = await (
-            await fetch('/api/donate', {
+            await fetch('/app/api', {
                 method: 'POST',
                 headers: {
                     Accept: 'application/json',
@@ -65,7 +60,7 @@ export default function DonateForm() {
                 type='button'
                 onClick={toggleDonationForm}
             >
-                Start Donation
+                new
             </button>
 
             <div className={`${creating ? '' : 'hidden'} ${styles.donateWrapper}`}>
@@ -88,14 +83,6 @@ export default function DonateForm() {
                             onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                         />
                         <p>{errorData.name}</p>
-
-                        <input
-                            type='email'
-                            placeholder='email'
-                            value={formData.email}
-                            onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                        />
-                        <p>{errorData.email}</p>
 
                         <select
                             value={formData.type}

@@ -19,7 +19,7 @@ export default function LoginForm() {
 
         setIsLoading(true)
         const { code } = await (
-            await fetch('/api/auth', {
+            await fetch('/login/api', {
                 method: 'POST',
                 headers: {
                     Accept: 'application/json',
@@ -32,7 +32,7 @@ export default function LoginForm() {
 
         if (code !== 201) return setError('request failed');
         
-        return router.push('/dashboard')
+        return router.push('/app')
     }
 
     return (

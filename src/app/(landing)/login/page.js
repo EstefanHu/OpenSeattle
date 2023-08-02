@@ -1,5 +1,5 @@
-import LoginForm from '@/components/LoginForm'
-import PasswordToClipboard from '@/components/PasswordToClipboard'
+import LoginForm from './LoginForm'
+import PasswordToClipboard from './PasswordToClipboard'
 import styles from './login.module.scss'
 
 export default function LoginPage() {

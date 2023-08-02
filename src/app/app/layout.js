@@ -1,5 +1,4 @@
 import Link from 'next/link';
-import DonateForm from '@/components/DonateForm';
 import styles from './layout.module.scss';
 
 export default function DashboardLayout({ children }) {
@@ -12,9 +11,8 @@ export default function DashboardLayout({ children }) {
 
 
                 <span>
+                    <Link href='/app'>donations</Link>
                     <Link href='/app/reports'>reports</Link>
-
-                    <DonateForm />
                 </span>
             </header>
 

@@ -1,12 +1,4 @@
-import {
-    BAD_REQUEST,
-    CONFLICT,
-    NOT_AUTHENTICATED,
-    INVALID_REQUEST,
-    SUCCESS,
-    CREATED,
-    UPDATED,
-} from '@/lib/httpResponses';
+import { BAD_REQUEST } from '@/lib/httpResponses';
 import prisma from '@/lib/prisma';
 
 export async function POST(req) {

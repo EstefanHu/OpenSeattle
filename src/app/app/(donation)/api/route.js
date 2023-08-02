@@ -10,13 +10,12 @@ import {
 import prisma from '@/lib/prisma';
 
 export async function POST(req) {
-    const { name, email, type, value } = await req.json()
-    if (!name || !email || !type || !value) return new Response(BAD_REQUEST);
+    const { name, type, value } = await req.json()
+    if (!name || !type || !value) return new Response(BAD_REQUEST);
 
     await prisma.donation.create({
         data: {
-            name,
-            email: email.toLowerCase(),
+            name: name.toLowerCase(),
             type: type.toLowerCase(),
             value: parseInt(value)
         }
@@ -28,12 +27,6 @@ export async function POST(req) {
 export async function GET() {
     const donations = await prisma.donation.findMany()
     return new Response(JSON.stringify({ data: donations }))
-}
-
-export async function PATCH(req) {
-    const { id } = req.json()
-    if (!id) return new Response(BAD_REQUEST)
-    return new Response(UPDATED);
 }
 
 export async function DELETE(req) {
