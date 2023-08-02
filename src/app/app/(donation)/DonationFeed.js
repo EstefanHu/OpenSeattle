@@ -39,12 +39,11 @@ export default function DonationFeed() {
 
     return (
         <>
-            {donations.map(({ id, name, email, type, value, createdAt }) => (
+            {donations.map(({ id, name, type, value, createdAt }) => (
                 <div key={id} className={styles.donation}>
                     <p className={styles.date}>{dayjs(createdAt).format('MMM DD, YYYY')}</p>
                     <h2>{name}</h2>
 
-                    <p><b>contact:</b> {email}</p>
                     <p><b>type:</b> {type}</p>
                     <p><b>amount:</b> {value}</p>
 

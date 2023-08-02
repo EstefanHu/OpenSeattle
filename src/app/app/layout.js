@@ -1,5 +1,4 @@
 import Link from 'next/link';
-import DonateForm from '@/app/app/(donation)/DonateForm';
 import styles from './layout.module.scss';
 
 export default function DashboardLayout({ children }) {

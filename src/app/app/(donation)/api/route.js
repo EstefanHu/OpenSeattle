@@ -7,15 +7,15 @@ import {
     CREATED,
     UPDATED,
 } from '@/lib/httpResponses';
+import prisma from '@/lib/prisma';
 
 export async function POST(req) {
-    const { name, email, type, value } = await req.json()
-    if (!name || !email || !type || !value) return new Response(BAD_REQUEST);
+    const { name, type, value } = await req.json()
+    if (!name || !type || !value) return new Response(BAD_REQUEST);
 
     await prisma.donation.create({
         data: {
-            name,
-            email: email.toLowerCase(),
+            name: name.toLowerCase(),
             type: type.toLowerCase(),
             value: parseInt(value)
         }
